@@ -190,7 +190,12 @@ const PricingSection = () => {
                       onClick={() => {
                         if (tier.buttonText === "Purchase Now") {
                           window.open(
-                            "https://invoice.stripe.com/i/acct_1Mupx1AoFnSabKUg/live_YWNjdF8xTXVweDFBb0ZuU2FiS1VnLF9TVmhSSng2MHV0VWxQVjhHNkFtRFoyc3Y2eDlEUWxsLDE0MDY3NzA5MQ0200Y2xXDgEF?s=db",
+                            "https://buy.stripe.com/8x2dR8diQfy3ay66ow28800",
+                            "_blank",
+                          );
+                        } else if (tier.buttonText === "Book a Demo Call") {
+                          window.open(
+                            "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
                             "_blank",
                           );
                         }

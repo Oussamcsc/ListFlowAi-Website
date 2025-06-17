@@ -90,7 +90,12 @@ const Navigation = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-6 py-2 rounded-full transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan font-space-grotesk"
-                onClick={() => scrollToSection("#contact")}
+                onClick={() =>
+                  window.open(
+                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                    "_blank",
+                  )
+                }
               >
                 Book a Demo Call
               </Button>
@@ -141,7 +146,12 @@ const Navigation = () => {
             <div className="px-3 py-2">
               <Button
                 className="w-full bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold py-2 rounded-full transition-all duration-300 font-space-grotesk"
-                onClick={() => scrollToSection("#contact")}
+                onClick={() =>
+                  window.open(
+                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                    "_blank",
+                  )
+                }
               >
                 Book a Demo Call
               </Button>

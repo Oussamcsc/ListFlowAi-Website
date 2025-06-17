@@ -133,7 +133,11 @@ const HeroSection = ({
                 className="text-lg px-10 py-6 rounded-full font-bold group bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan animate-glow-pulse font-space-grotesk"
                 asChild
               >
-                <a href={ctaLink}>
+                <a
+                  href="https://calendly.com/oabouyahia/free-ai-automation-demo-call"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {ctaText}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>

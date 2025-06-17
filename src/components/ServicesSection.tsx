@@ -152,6 +152,12 @@ const ServicesSection = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-12 py-8 h-auto text-lg rounded-full shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-glow-pulse font-space-grotesk"
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                  "_blank",
+                )
+              }
             >
               Dominate Your Market
               <ArrowRight className="ml-3 h-6 w-6" />

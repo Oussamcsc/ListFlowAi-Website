@@ -43,13 +43,13 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "hello@listflowai.com",
+      details: "oussama@listflowai.com",
       description: "Send us an email anytime",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
+      details: "989-285-5145",
       description: "Mon-Fri from 8am to 6pm PST",
     },
     {
@@ -239,7 +239,15 @@ const ContactSection = () => {
                 Book a free 30-minute consultation to discuss your automation
                 needs.
               </p>
-              <Button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:glow">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:glow"
+                onClick={() =>
+                  window.open(
+                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                    "_blank",
+                  )
+                }
+              >
                 Book a Demo Call
               </Button>
             </div>

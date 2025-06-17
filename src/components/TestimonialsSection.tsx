@@ -22,7 +22,8 @@ const testimonials: Testimonial[] = [
     role: "CEO & Founder",
     quote:
       "ListFlowAI didn't just automate our processes—it weaponized them. We went from 12-hour days to 4-hour power sessions while 3x-ing our revenue. This isn't automation, it's domination.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=marcus",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&q=80",
   },
   {
     id: 2,
@@ -31,7 +32,8 @@ const testimonials: Testimonial[] = [
     role: "Chief Revenue Officer",
     quote:
       "Our conversion rates exploded by 73% in the first month. ListFlowAI doesn't just capture leads—it psychologically profiles them and delivers them ready to sign. Ruthlessly effective.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=victoria",
+    image:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face&q=80",
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ const testimonials: Testimonial[] = [
     role: "Managing Director",
     quote:
       "I was skeptical until I saw the numbers. 60% cost reduction, 200% productivity increase, and my competitors are still playing catch-up. ListFlowAI gave us an unfair advantage.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=alexander",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&q=80",
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ const testimonials: Testimonial[] = [
     role: "Founder",
     quote:
       "While my competitors burn out managing operations, I'm closing deals and scaling empires. ListFlowAI works 24/7 so I can focus on what matters: total market domination.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=sophia",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&q=80",
   },
 ];
 
@@ -220,6 +224,12 @@ const TestimonialsSection = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-12 py-6 text-lg rounded-full shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-glow-pulse font-space-grotesk"
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                  "_blank",
+                )
+              }
             >
               Book a Demo Call
             </Button>
