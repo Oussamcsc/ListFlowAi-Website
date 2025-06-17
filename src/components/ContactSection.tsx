@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from "lucide-react";
+import { Mail, Phone, Send, MessageSquare } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -19,14 +19,11 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    // Reset form
     setFormData({ name: "", email: "", company: "", message: "" });
     setIsSubmitting(false);
 
-    // Show success message (you can implement toast notifications here)
     alert("Thank you for your message! We'll get back to you within 24 hours.");
   };
 
@@ -52,24 +49,11 @@ const ContactSection = () => {
       details: "989-285-5145",
       description: "Mon-Fri from 8am to 6pm PST",
     },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: "San Francisco, CA",
-      description: "Schedule a meeting at our office",
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      details: "< 24 hours",
-      description: "We respond to all inquiries quickly",
-    },
   ];
 
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +72,6 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -199,7 +182,6 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -232,7 +214,6 @@ const ContactSection = () => {
               );
             })}
 
-            {/* CTA */}
             <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/20 rounded-xl p-8 text-center">
               <h4 className="text-xl font-bold mb-4">Ready to get started?</h4>
               <p className="text-muted-foreground mb-6">

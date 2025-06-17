@@ -10,27 +10,6 @@ const AboutSection = () => {
     { number: "24/7", label: "AI Support", icon: Target },
   ];
 
-  const team = [
-    {
-      name: "Alex Chen",
-      role: "CEO & Founder",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=alex",
-      bio: "Former Google AI engineer with 10+ years in automation",
-    },
-    {
-      name: "Sarah Johnson",
-      role: "CTO",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
-      bio: "Machine learning expert and automation architect",
-    },
-    {
-      name: "Marcus Rodriguez",
-      role: "Head of Product",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=marcus",
-      bio: "Product strategist focused on user experience",
-    },
-  ];
-
   return (
     <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
@@ -83,7 +62,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 gap-12 items-center mb-20"
+          className="grid md:grid-cols-2 gap-12 items-center"
         >
           <div>
             <h3 className="text-3xl font-bold mb-6 text-primary">Our Story</h3>
@@ -112,35 +91,6 @@ const AboutSection = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Team */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <h3 className="text-3xl font-bold text-center mb-12 text-primary">
-            Meet Our Team
-          </h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="text-center p-6 rounded-xl bg-primary/5 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:transform hover:scale-105"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-primary/20"
-                />
-                <h4 className="text-xl font-bold mb-2">{member.name}</h4>
-                <p className="text-primary mb-3">{member.role}</p>
-                <p className="text-muted-foreground text-sm">{member.bio}</p>
-              </div>
-            ))}
           </div>
         </motion.div>
       </div>
