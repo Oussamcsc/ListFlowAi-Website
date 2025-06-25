@@ -37,22 +37,6 @@ const PricingSection = () => {
       buttonText: "Purchase Now",
     },
     {
-      name: "Warlord",
-      price: "$1,997",
-      description:
-        "For ambitious leaders ready to scale their empire without limits.",
-      features: [
-        "Advanced AI automation suite",
-        "Psychological lead profiling",
-        "Multi-channel domination",
-        "Up to 15 automation workflows",
-        "25 hours of strategic support",
-        "Dedicated war room access",
-      ],
-      buttonText: "Purchase Now",
-      popular: true,
-    },
-    {
       name: "Emperor",
       price: "Custom",
       description: "For industry titans who demand absolute market domination.",
@@ -120,7 +104,7 @@ const PricingSection = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
