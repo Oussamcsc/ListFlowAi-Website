@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Navigation from "./Navigation";
 import HeroSection from "./HeroSection";
 import ServicesSection from "./ServicesSection";
@@ -11,6 +12,73 @@ import ContactSection from "./ContactSection";
 const fadeIn = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { duration: 0.6 } },
+};
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "Who is ListFlowAI for?",
+      answer:
+        "Small service-business owners who want to automate outreach + follow-ups using AI—quick setup, no tech skills needed.",
+    },
+    {
+      question: "How quickly can I get started?",
+      answer:
+        "Most clients are up and running within 24-48 hours. We handle the technical setup while you focus on your business.",
+    },
+    {
+      question: "What makes ListFlowAI different?",
+      answer:
+        "We specialize in service businesses with proven AI workflows that actually convert leads—not generic chatbots.",
+    },
+    {
+      question: "Do I need technical knowledge?",
+      answer:
+        "Zero technical skills required. We set everything up and provide simple dashboards to track your results.",
+    },
+  ];
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div>
+      <h4 className="text-lg font-semibold mb-4">FAQ</h4>
+      <div className="space-y-2">
+        {faqs.map((faq, index) => (
+          <div key={index} className="border-b border-gray-700/50">
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="w-full flex items-center justify-between py-3 text-left hover:text-white transition-colors"
+            >
+              <span className="text-sm font-medium text-muted-foreground hover:text-white">
+                {faq.question}
+              </span>
+              {openIndex === index ? (
+                <ChevronUp className="h-4 w-4 text-muted-foreground" />
+              ) : (
+                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              )}
+            </button>
+            {openIndex === index && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.2 }}
+                className="pb-3"
+              >
+                <p className="text-sm text-muted-foreground">{faq.answer}</p>
+              </motion.div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 const Home = () => {
@@ -66,58 +134,6 @@ const Home = () => {
         <ContactSection />
       </motion.div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeIn}
-        className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50"
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-8">
-            <div className="border-b border-gray-700 pb-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Q: Who is ListFlowAI for?
-              </h3>
-              <p className="text-gray-300 text-lg">
-                A: Small service-business owners who want to automate outreach +
-                follow-ups using AI—quick setup, no tech skills needed.
-              </p>
-            </div>
-            <div className="border-b border-gray-700 pb-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Q: How quickly can I get started?
-              </h3>
-              <p className="text-gray-300 text-lg">
-                A: Most clients are up and running within 24-48 hours. We handle
-                the technical setup while you focus on your business.
-              </p>
-            </div>
-            <div className="border-b border-gray-700 pb-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Q: What makes ListFlowAI different?
-              </h3>
-              <p className="text-gray-300 text-lg">
-                A: We specialize in service businesses with proven AI workflows
-                that actually convert leads—not generic chatbots.
-              </p>
-            </div>
-            <div className="pb-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Q: Do I need technical knowledge?
-              </h3>
-              <p className="text-gray-300 text-lg">
-                A: Zero technical skills required. We set everything up and
-                provide simple dashboards to track your results.
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
       <motion.footer
         initial="hidden"
         whileInView="visible"
@@ -161,38 +177,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">FAQ</h4>
-            <div className="space-y-4">
-              <div>
-                <h5 className="font-medium text-white mb-1">
-                  What does ListFlowAI do?
-                </h5>
-                <p className="text-sm text-muted-foreground">
-                  We provide AI automation solutions to streamline operations
-                  and workflows for service-based businesses.
-                </p>
-              </div>
-              <div>
-                <h5 className="font-medium text-white mb-1">
-                  Who is this for?
-                </h5>
-                <p className="text-sm text-muted-foreground">
-                  Service-based businesses looking to automate lead capture,
-                  improve efficiency, and scale their operations.
-                </p>
-              </div>
-              <div>
-                <h5 className="font-medium text-white mb-1">
-                  How do I get started?
-                </h5>
-                <p className="text-sm text-muted-foreground">
-                  Book a demo call to discuss your needs and see how our AI
-                  solutions can transform your business.
-                </p>
-              </div>
-            </div>
-          </div>
+          <FAQSection />
         </div>
 
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-border">
