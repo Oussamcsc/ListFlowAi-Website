@@ -66,6 +66,58 @@ const Home = () => {
         <ContactSection />
       </motion.div>
 
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+        className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50"
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-8">
+            <div className="border-b border-gray-700 pb-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Q: Who is ListFlowAI for?
+              </h3>
+              <p className="text-gray-300 text-lg">
+                A: Small service-business owners who want to automate outreach +
+                follow-ups using AI—quick setup, no tech skills needed.
+              </p>
+            </div>
+            <div className="border-b border-gray-700 pb-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Q: How quickly can I get started?
+              </h3>
+              <p className="text-gray-300 text-lg">
+                A: Most clients are up and running within 24-48 hours. We handle
+                the technical setup while you focus on your business.
+              </p>
+            </div>
+            <div className="border-b border-gray-700 pb-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Q: What makes ListFlowAI different?
+              </h3>
+              <p className="text-gray-300 text-lg">
+                A: We specialize in service businesses with proven AI workflows
+                that actually convert leads—not generic chatbots.
+              </p>
+            </div>
+            <div className="pb-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Q: Do I need technical knowledge?
+              </h3>
+              <p className="text-gray-300 text-lg">
+                A: Zero technical skills required. We set everything up and
+                provide simple dashboards to track your results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       <motion.footer
         initial="hidden"
         whileInView="visible"
