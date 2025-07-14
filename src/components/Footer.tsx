@@ -11,7 +11,7 @@ const Footer = () => {
     },
     {
       name: "Instagram", 
-      href: "#",
+      href: "https://www.instagram.com/list.flowai/",
       icon: Instagram,
     },
     {
