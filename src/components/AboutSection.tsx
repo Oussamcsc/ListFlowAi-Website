@@ -69,18 +69,26 @@ const AboutSection = () => {
               Our <span className="text-primary">Story</span>
             </h3>
             <p className="text-xl text-muted-foreground leading-relaxed font-space-grotesk text-justify">
-              Founded in 2023 by two brother software engineers in Washington DC, ListFlowAI emerged from a simple observation: service businesses were drowning in manual processes while AI technology remained out of reach for most. Having worked at leading tech companies, the founding brothers decided to bridge this gap by creating accessible AI solutions that actually work for real businesses. Today, we're proud to serve hundreds of businesses worldwide, helping them save time, increase efficiency, and focus on what matters most - serving their customers.
+              Founded in 2023 by two brother software engineers in Washington
+              DC, ListFlowAI emerged from a simple observation: service
+              businesses were drowning in manual processes while AI technology
+              remained out of reach for most. Having worked at leading tech
+              companies, the founding brothers decided to bridge this gap by
+              creating accessible AI solutions that actually work for real
+              businesses. Today, we're proud to serve hundreds of businesses
+              worldwide, helping them save time, increase efficiency, and focus
+              on what matters most - serving their customers.
             </p>
           </div>
           <div className="relative">
-            <motion.div 
+            <motion.div
               className="relative rounded-xl overflow-hidden shadow-2xl border border-primary/20"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-                alt="Team collaboration and AI innovation"
+                src="/pexels-goumbik-574071.jpg"
+                alt="Developer coding and AI innovation"
                 className="w-full h-auto object-cover rounded-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>

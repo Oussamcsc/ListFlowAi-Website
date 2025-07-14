@@ -10,13 +10,13 @@ const Footer = () => {
       icon: Linkedin,
     },
     {
-      name: "Instagram", 
+      name: "Instagram",
       href: "https://www.instagram.com/list.flowai/",
       icon: Instagram,
     },
     {
       name: "Twitter",
-      href: "#",
+      href: "https://x.com/listflow_ai",
       icon: Twitter,
     },
   ];
@@ -37,8 +37,12 @@ const Footer = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  item.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -49,7 +53,7 @@ const Footer = () => {
             );
           })}
         </motion.div>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
