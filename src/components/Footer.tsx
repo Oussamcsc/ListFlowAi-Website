@@ -16,7 +16,7 @@ const Footer = () => {
     },
     {
       name: "Twitter",
-      href: "#",
+      href: "https://x.com/listflow_ai",
       icon: Twitter,
     },
   ];
