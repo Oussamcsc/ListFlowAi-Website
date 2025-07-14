@@ -77,10 +77,10 @@ const PricingSection = () => {
   return (
     <section
       id="pricing"
-      className="py-20 px-4 md:px-8 bg-black relative overflow-hidden"
+      className="py-20 px-4 md:px-8 bg-background relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 cyber-grid opacity-20"></div>
+      <div className="absolute inset-0 cyber-grid cyber-grid-light"></div>
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-neon-red/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-neon-purple/5 rounded-full blur-3xl"></div>
 
@@ -93,11 +93,11 @@ const PricingSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-black mb-6 font-sora">
-            <span className="bg-gradient-to-r from-white via-neon-red to-neon-purple bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               Choose Your Weapon
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed">
             No contracts. No bullshit. Just pure automation power that scales
             with your ambition.
           </p>
@@ -118,19 +118,19 @@ const PricingSection = () => {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Card
-                className={`h-full flex flex-col bg-black/60 backdrop-blur-md border transition-all duration-300 ${
+                className={`h-full flex flex-col bg-card border transition-all duration-300 ${
                   tier.popular
-                    ? "border-neon-purple shadow-neon-purple scale-105"
-                    : "border-gray-800 hover:border-neon-cyan/50"
+                    ? "border-primary shadow-lg shadow-primary/20 scale-105"
+                    : "border-border hover:border-primary/50"
                 }`}
               >
                 {tier.popular && (
-                  <div className="bg-gradient-to-r from-neon-purple to-neon-cyan text-white text-center py-2 text-sm font-bold font-space-grotesk">
+                  <div className="bg-gradient-to-r from-neon-purple to-neon-cyan text-primary-foreground text-center py-2 text-sm font-bold font-space-grotesk">
                     MOST RUTHLESS
                   </div>
                 )}
                 <CardHeader className="text-center">
-                  <CardTitle className="text-3xl font-black text-white font-sora mb-2">
+                  <CardTitle className="text-3xl font-black text-foreground font-sora mb-2">
                     {tier.name}
                   </CardTitle>
                   <div className="mt-4">
@@ -138,12 +138,12 @@ const PricingSection = () => {
                       {tier.price}
                     </span>
                     {tier.name !== "Emperor" && (
-                      <span className="text-gray-400 font-space-grotesk">
+                      <span className="text-muted-foreground font-space-grotesk">
                         /month
                       </span>
                     )}
                   </div>
-                  <CardDescription className="mt-4 text-gray-300 font-space-grotesk leading-relaxed">
+                  <CardDescription className="mt-4 text-muted-foreground font-space-grotesk leading-relaxed">
                     {tier.description}
                   </CardDescription>
                 </CardHeader>
@@ -152,7 +152,7 @@ const PricingSection = () => {
                     {tier.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <Check className="h-5 w-5 text-neon-cyan shrink-0 mr-3 mt-0.5" />
-                        <span className="text-gray-300 font-space-grotesk">
+                        <span className="text-muted-foreground font-space-grotesk">
                           {feature}
                         </span>
                       </li>
@@ -168,8 +168,8 @@ const PricingSection = () => {
                     <Button
                       className={`w-full py-4 font-bold font-space-grotesk transition-all duration-300 ${
                         tier.name === "Emperor"
-                          ? "bg-transparent border-2 border-neon-red text-neon-red hover:bg-neon-red hover:text-white"
-                          : "bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white shadow-neon-purple hover:shadow-neon-cyan"
+                          ? "bg-destructive hover:bg-destructive/90 text-destructive-foreground border-destructive"
+                          : "bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-primary-foreground shadow-neon-purple hover:shadow-neon-cyan"
                       }`}
                       onClick={() => {
                         if (tier.buttonText === "Purchase Now") {
@@ -201,7 +201,7 @@ const PricingSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <p className="text-gray-400 mb-6 text-lg font-space-grotesk">
+          <p className="text-muted-foreground mb-6 text-lg font-space-grotesk">
             30-day domination guarantee. No contracts. No excuses. Just results.
           </p>
           <motion.div whileHover={{ scale: 1.05 }}>

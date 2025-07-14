@@ -1,0 +1,5 @@
+/* Enhanced hover states */
+.hover\:card-enhanced:hover {
+  background: hsl(var(--card-foreground));
+  border-color: hsl(var(--primary));
+}

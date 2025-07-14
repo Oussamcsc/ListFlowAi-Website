@@ -67,7 +67,7 @@ const TestimonialsSection = () => {
     if (autoplay) {
       interval = setInterval(() => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      }, 5000);
+      }, 3000);
     }
 
     return () => clearInterval(interval);
@@ -92,11 +92,11 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      className="py-20 px-4 md:px-8 bg-black w-full relative overflow-hidden"
+      className="py-20 px-4 md:px-8 bg-background w-full relative overflow-hidden"
       id="testimonials"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 cyber-grid opacity-20"></div>
+      <div className="absolute inset-0 cyber-grid cyber-grid-light"></div>
       <div className="absolute top-0 right-1/3 w-96 h-96 bg-neon-cyan/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-neon-red/5 rounded-full blur-3xl"></div>
 
@@ -109,11 +109,11 @@ const TestimonialsSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-black mb-6 font-sora">
-            <span className="bg-gradient-to-r from-white via-neon-cyan to-neon-purple bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               War Stories From The Trenches
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed">
             Real results from real warriors who chose to dominate their markets
             with ListFlowAI.
           </p>
@@ -134,36 +134,36 @@ const TestimonialsSection = () => {
               >
                 {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <Card className="border border-neon-purple/30 shadow-neon-purple bg-black/60 backdrop-blur-md">
+                    <Card className="border border-border shadow-sm bg-card/80 backdrop-blur-md hover:border-primary/30 transition-all duration-300">
                       <CardContent className="p-8 md:p-12">
                         <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                          <Avatar className="h-24 w-24 md:h-28 md:w-28 border-2 border-neon-cyan/50 shadow-neon-cyan">
+                          <Avatar className="h-24 w-24 md:h-28 md:w-28 border-2 border-primary/30 shadow-sm">
                             <AvatarImage
                               src={testimonial.image}
                               alt={testimonial.name}
                             />
-                            <AvatarFallback className="bg-neon-purple/20 text-neon-purple font-bold text-xl">
+                            <AvatarFallback className="bg-primary/10 text-primary font-bold text-xl">
                               {testimonial.name.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
                           <div className="flex-1 text-center md:text-left">
                             <div className="mb-6">
                               <svg
-                                className="h-8 w-8 text-neon-cyan inline-block mb-4"
+                                className="h-8 w-8 text-secondary inline-block mb-4"
                                 fill="currentColor"
                                 viewBox="0 0 24 24"
                               >
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                               </svg>
                             </div>
-                            <p className="text-xl md:text-2xl text-white italic mb-8 font-space-grotesk leading-relaxed">
+                            <p className="text-xl md:text-2xl text-foreground italic mb-8 font-space-grotesk leading-relaxed">
                               "{testimonial.quote}"
                             </p>
                             <div>
-                              <h4 className="font-bold text-neon-purple text-xl font-sora">
+                              <h4 className="font-bold text-primary text-xl font-sora">
                                 {testimonial.name}
                               </h4>
-                              <p className="text-gray-400 font-space-grotesk font-medium">
+                              <p className="text-muted-foreground font-space-grotesk font-medium">
                                 {testimonial.role}, {testimonial.company}
                               </p>
                             </div>
@@ -177,12 +177,12 @@ const TestimonialsSection = () => {
             </div>
           </motion.div>
 
-          <div className="flex justify-center mt-8 gap-2">
+          <div className="testimonial-dots mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`h-2.5 rounded-full transition-all ${activeIndex === index ? "w-8 bg-neon-purple shadow-neon-purple" : "w-2.5 bg-gray-600 hover:bg-neon-cyan"}`}
+                className={`h-2 rounded-full transition-all ${activeIndex === index ? "w-8 bg-primary" : "w-2 bg-primary/30 hover:bg-primary/60"}`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
@@ -192,7 +192,7 @@ const TestimonialsSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full bg-black/80 backdrop-blur-sm border-neon-purple/30 text-neon-purple hover:bg-neon-purple hover:text-white pointer-events-auto transition-all duration-300"
+              className="rounded-full bg-background/80 backdrop-blur-sm border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground pointer-events-auto transition-all duration-300"
               onClick={handlePrevious}
               aria-label="Previous testimonial"
             >
@@ -201,7 +201,7 @@ const TestimonialsSection = () => {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-full bg-black/80 backdrop-blur-sm border-neon-purple/30 text-neon-purple hover:bg-neon-purple hover:text-white pointer-events-auto transition-all duration-300"
+              className="rounded-full bg-background/80 backdrop-blur-sm border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground pointer-events-auto transition-all duration-300"
               onClick={handleNext}
               aria-label="Next testimonial"
             >
@@ -217,13 +217,15 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl md:text-3xl font-black mb-8 text-white font-sora">
-            Ready to join the elite?
+          <h3 className="text-2xl md:text-3xl font-black mb-8 font-sora">
+            <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+              Ready to join the elite?
+            </span>
           </h3>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               size="lg"
-              className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-12 py-6 text-lg rounded-full shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-glow-pulse font-space-grotesk"
+              className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-primary-foreground font-bold px-12 py-6 text-lg rounded-full shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-glow-pulse font-space-grotesk"
               onClick={() =>
                 window.open(
                   "https://calendly.com/oabouyahia/free-ai-automation-demo-call",

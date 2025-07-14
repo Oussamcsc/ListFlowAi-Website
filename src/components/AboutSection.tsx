@@ -11,7 +11,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-black">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -62,35 +62,29 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-12 items-start"
         >
           <div>
-            <h3 className="text-3xl font-bold mb-6 text-primary">Our Story</h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Founded in 2023, ListFlowAI emerged from a simple observation:
-              service businesses were drowning in manual processes while AI
-              technology remained out of reach for most.
-            </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our founders, having worked at leading tech companies, decided to
-              bridge this gap by creating accessible AI solutions that actually
-              work for real businesses.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Today, we're proud to serve hundreds of businesses worldwide,
-              helping them save time, increase efficiency, and focus on what
-              matters most - serving their customers.
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 glow-text font-sora">
+              Our <span className="text-primary">Story</span>
+            </h3>
+            <p className="text-xl text-muted-foreground leading-relaxed font-space-grotesk text-justify">
+              Founded in 2023 by two brother software engineers in Washington DC, ListFlowAI emerged from a simple observation: service businesses were drowning in manual processes while AI technology remained out of reach for most. Having worked at leading tech companies, the founding brothers decided to bridge this gap by creating accessible AI solutions that actually work for real businesses. Today, we're proud to serve hundreds of businesses worldwide, helping them save time, increase efficiency, and focus on what matters most - serving their customers.
             </p>
           </div>
           <div className="relative">
-            <div className="aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center">
-              <div className="text-center">
-                <Zap className="w-16 h-16 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">
-                  Innovation meets practicality
-                </p>
-              </div>
-            </div>
+            <motion.div 
+              className="relative rounded-xl overflow-hidden shadow-2xl border border-primary/20"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                alt="Team collaboration and AI innovation"
+                className="w-full h-auto object-cover rounded-xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

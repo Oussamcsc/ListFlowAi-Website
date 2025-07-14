@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import { ModeToggle } from "./mode-toggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,8 +37,8 @@ const Navigation = () => {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-lg dark:shadow-none"
+          : "bg-background/80 backdrop-blur-sm border-b border-border/50 dark:bg-transparent dark:border-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -57,8 +58,13 @@ const Navigation = () => {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
+              className="flex items-center space-x-2"
             >
-              <span className="text-2xl font-bold font-sora bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+              {/* Logo placeholder - replace with your logo */}
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-md">
+                <span className="text-primary-foreground font-bold text-lg">L</span>
+              </div>
+              <span className="text-xl font-bold font-sora bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 ListFlowAI
               </span>
             </a>
@@ -75,7 +81,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className="text-gray-300 hover:text-neon-purple transition-colors duration-200 font-medium font-space-grotesk"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200 font-medium font-space-grotesk"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -85,30 +91,18 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-6 py-2 rounded-full transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan font-space-grotesk"
-                onClick={() =>
-                  window.open(
-                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
-                    "_blank",
-                  )
-                }
-              >
-                Book a Demo Call
-              </Button>
-            </motion.div>
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center space-x-4">
+            <ModeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300 hover:text-neon-purple"
+              className="text-muted-foreground hover:text-primary"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -116,6 +110,7 @@ const Navigation = () => {
                 <Menu className="h-6 w-6" />
               )}
             </Button>
+            <ModeToggle />
           </div>
         </div>
       </div>
@@ -123,7 +118,7 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <motion.div
-          className="md:hidden bg-black/95 backdrop-blur-md border-t border-white/10"
+          className="md:hidden bg-background/95 backdrop-blur-md border-t border-border"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
@@ -138,27 +133,22 @@ const Navigation = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-gray-300 hover:text-neon-purple block px-3 py-2 text-base font-medium font-space-grotesk transition-colors duration-200"
+                className="text-muted-foreground hover:text-primary block px-3 py-2 text-base font-medium font-space-grotesk transition-colors duration-200"
               >
                 {link.name}
               </a>
             ))}
-            <div className="px-3 py-2">
-              <Button
-                className="w-full bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold py-2 rounded-full transition-all duration-300 font-space-grotesk"
-                onClick={() =>
-                  window.open(
-                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
-                    "_blank",
-                  )
-                }
-              >
-                Book a Demo Call
-              </Button>
-            </div>
           </div>
         </motion.div>
       )}
+      
+      {/* Innovative animated gradient line */}
+      <motion.div 
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isScrolled ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
     </motion.nav>
   );
 };

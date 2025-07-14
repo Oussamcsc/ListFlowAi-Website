@@ -11,7 +11,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  title = "Automate ruthlessly. Scale fearlessly.",
+  title = "Automate ruthlessly.<br />Scale fearlessly.",
   subtitle = "AI that works while you sleep. Built for closers. Powered by automation.",
   ctaText = "Book a Demo Call",
   ctaLink = "#demo",
@@ -41,14 +41,57 @@ const HeroSection = ({
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black cyber-grid"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background pt-12 sm:pt-16"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 via-black to-neon-cyan/10 z-0"></div>
+      {/* Sophisticated background pattern inspired by Tailwind UI */}
+      <svg 
+        className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-border [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]" 
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern 
+            id="hero-grid-pattern" 
+            width="200" 
+            height="200" 
+            x="50%" 
+            y="-1" 
+            patternUnits="userSpaceOnUse"
+          >
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <svg x="50%" y="-1" className="overflow-visible fill-muted/5">
+          <path 
+            d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" 
+            strokeWidth="0" 
+          />
+        </svg>
+        <rect width="100%" height="100%" strokeWidth="0" fill="url(#hero-grid-pattern)" />
+      </svg>
+      
+      {/* Gradient background elements */}
+      <div 
+        className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48" 
+        aria-hidden="true"
+      >
+        <div 
+          className="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-primary/30 to-accent/30 opacity-30 dark:opacity-20" 
+          style={{
+            clipPath: "polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)"
+          }}
+        />
+      </div>
+      
+      {/* Innovative floating shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-4 sm:left-10 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-ping"></div>
+        <div className="absolute top-20 sm:top-40 right-8 sm:right-20 w-1 h-1 bg-accent rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 sm:bottom-32 left-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-primary/50 rounded-full animate-bounce"></div>
+      </div>
 
       {/* Animated background elements */}
       <motion.div
-        className="absolute top-20 right-20 w-64 h-64 rounded-full bg-neon-purple/20 blur-3xl"
+        className="absolute top-20 right-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.6, 0.3],
@@ -60,7 +103,7 @@ const HeroSection = ({
         }}
       ></motion.div>
       <motion.div
-        className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-neon-cyan/20 blur-3xl"
+        className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-accent/20 blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.4, 0.7, 0.4],
@@ -72,7 +115,7 @@ const HeroSection = ({
         }}
       ></motion.div>
       <motion.div
-        className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-neon-red/10 blur-3xl"
+        className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
         animate={{
           x: [-50, 50, -50],
           y: [-30, 30, -30],
@@ -87,37 +130,45 @@ const HeroSection = ({
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
-          className="flex flex-col items-center text-center max-w-5xl mx-auto"
+          className="flex flex-col items-center text-center max-w-5xl mx-auto px-4 sm:px-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.div
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
             variants={itemVariants}
           >
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             >
-              <Zap className="h-8 w-8 text-neon-purple" />
+              <div className="ai-loader scale-75 sm:scale-100">
+                <div className="ai-loader__bar"></div>
+                <div className="ai-loader__bar"></div>
+                <div className="ai-loader__bar"></div>
+                <div className="ai-loader__bar"></div>
+                <div className="ai-loader__bar"></div>
+                <div className="ai-loader__ball"></div>
+              </div>
             </motion.div>
-            <span className="text-neon-cyan font-bold text-lg font-space-grotesk tracking-wider">
+            <span className="text-accent font-bold text-sm sm:text-lg font-space-grotesk tracking-wider">
               ELITE AI AUTOMATION
             </span>
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 font-sora glow-text"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 sm:mb-6 font-sora glow-text leading-tight"
             variants={itemVariants}
           >
-            <span className="bg-gradient-to-r from-white via-neon-purple to-neon-cyan bg-clip-text text-transparent">
-              {title}
-            </span>
+            <span 
+              className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl font-space-grotesk font-medium leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-10 max-w-3xl font-space-grotesk font-medium leading-relaxed px-4"
             variants={itemVariants}
           >
             {subtitle}
@@ -125,12 +176,12 @@ const HeroSection = ({
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 items-center"
+            className="flex flex-col items-center w-full max-w-md mx-auto sm:max-w-none"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="text-lg px-10 py-6 rounded-full font-bold group bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple transition-all duration-300 shadow-neon-purple hover:shadow-neon-cyan animate-glow-pulse font-space-grotesk"
+                className="text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 rounded-full font-bold group bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground transition-all duration-300 font-space-grotesk w-full sm:w-auto"
                 asChild
               >
                 <a
@@ -139,12 +190,12 @@ const HeroSection = ({
                   rel="noopener noreferrer"
                 >
                   {ctaText}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
             </motion.div>
             <motion.p
-              className="text-sm text-gray-400 font-space-grotesk"
+              className="text-sm text-muted-foreground font-space-grotesk text-center sm:text-left"
               variants={itemVariants}
             >
               No contracts. No BS. Just results.
@@ -152,11 +203,11 @@ const HeroSection = ({
           </motion.div>
 
           <motion.div
-            className="mt-20 relative w-full max-w-4xl"
+            className="mt-12 sm:mt-20 relative w-full max-w-4xl px-4 sm:px-0"
             variants={itemVariants}
           >
             <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-2xl border border-neon-purple/30"
+              className="relative rounded-2xl overflow-hidden shadow-2xl hidden sm:block"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -165,29 +216,27 @@ const HeroSection = ({
                 alt="AI Automation Dashboard"
                 className="w-full h-auto"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/10 to-neon-cyan/10"></div>
             </motion.div>
 
-            {/* Floating elements with enhanced styling */}
+            {/* Floating elements with enhanced mobile styling */}
             <motion.div
-              className="absolute -top-8 -right-8 bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-neon-purple border border-neon-purple/30"
+              className="absolute -top-4 sm:-top-8 -right-2 sm:-right-8 bg-card/80 backdrop-blur-md p-2 sm:p-4 rounded-xl shadow-neon-purple border border-neon-purple/30"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-neon-purple/20 flex items-center justify-center border border-neon-purple/30">
-                  <span className="text-neon-purple text-sm font-bold">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-neon-purple/20 flex items-center justify-center border border-neon-purple/30">
+                  <span className="text-neon-purple text-xs sm:text-sm font-bold">
                     +47%
                   </span>
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-bold text-white font-space-grotesk">
+                  <p className="text-xs sm:text-sm font-bold text-foreground font-space-grotesk">
                     Lead Conversion
                   </p>
-                  <p className="text-xs text-gray-400 font-space-grotesk">
+                  <p className="text-xs text-muted-foreground font-space-grotesk hidden sm:block">
                     Ruthless efficiency
                   </p>
                 </div>
@@ -195,21 +244,21 @@ const HeroSection = ({
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-neon-cyan border border-neon-cyan/30"
+              className="absolute -bottom-4 sm:-bottom-8 -left-2 sm:-left-8 bg-background/80 backdrop-blur-md p-2 sm:p-4 rounded-xl shadow-neon-cyan border border-neon-cyan/30"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-neon-cyan/20 flex items-center justify-center border border-neon-cyan/30">
-                  <span className="text-neon-cyan text-sm font-bold">24/7</span>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-neon-cyan/20 flex items-center justify-center border border-neon-cyan/30">
+                  <span className="text-neon-cyan text-xs sm:text-sm font-bold">24/7</span>
                 </div>
                 <div className="text-left">
-                  <p className="text-sm font-bold text-white font-space-grotesk">
+                  <p className="text-xs sm:text-sm font-bold text-foreground font-space-grotesk">
                     AI Working
                   </p>
-                  <p className="text-xs text-gray-400 font-space-grotesk">
+                  <p className="text-xs text-muted-foreground font-space-grotesk hidden sm:block">
                     While you sleep
                   </p>
                 </div>
@@ -217,18 +266,18 @@ const HeroSection = ({
             </motion.div>
 
             <motion.div
-              className="absolute top-1/2 -left-12 bg-black/80 backdrop-blur-md p-3 rounded-xl shadow-neon-red border border-neon-red/30"
+              className="absolute top-3/4 -left-6 sm:-left-12 bg-background/80 backdrop-blur-md p-2 sm:p-3 rounded-xl shadow-lg border border-border"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded-full bg-neon-red/20 flex items-center justify-center border border-neon-red/30">
-                  <span className="text-neon-red text-xs font-bold">∞</span>
+              <div className="flex items-center gap-1 sm:gap-2">
+                <div className="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                  <span className="text-primary text-xs font-bold">∞</span>
                 </div>
                 <div className="text-left">
-                  <p className="text-xs font-bold text-white font-space-grotesk">
+                  <p className="text-xs font-bold text-foreground font-space-grotesk">
                     Scale
                   </p>
                 </div>

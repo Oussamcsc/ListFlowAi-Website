@@ -1,8 +1,68 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Zap, LineChart, Clock } from "lucide-react";
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  Settings, 
+  TrendingUp, 
+  Zap 
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+// Simple, contextual animated icon components
+const RuthlessOperationsIcon = () => {
+  return (
+    <motion.div
+      animate={{ 
+        rotate: [0, 360],
+        scale: [1, 1.1, 1]
+      }}
+      transition={{ 
+        rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+        scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+      }}
+    >
+      <Settings className="w-8 h-8" />
+    </motion.div>
+  );
+};
+
+const LeadDominationIcon = () => {
+  return (
+    <motion.div
+      animate={{ 
+        y: [0, -4, 0],
+        scale: [1, 1.05, 1]
+      }}
+      transition={{ 
+        duration: 2, 
+        repeat: Infinity, 
+        ease: "easeInOut" 
+      }}
+    >
+      <TrendingUp className="w-8 h-8" />
+    </motion.div>
+  );
+};
+
+const EmpireAutomationIcon = () => {
+  return (
+    <motion.div
+      animate={{ 
+        scale: [1, 1.2, 1],
+        opacity: [1, 0.8, 1]
+      }}
+      transition={{ 
+        duration: 1.5, 
+        repeat: Infinity, 
+        ease: "easeInOut" 
+      }}
+    >
+      <Zap className="w-8 h-8" />
+    </motion.div>
+  );
+};
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -26,30 +86,30 @@ const ServiceCard = ({
       className="w-full"
       whileHover={{ y: -5 }}
     >
-      <Card className="h-full bg-black/60 backdrop-blur-md border border-neon-purple/30 hover:border-neon-cyan/50 hover:shadow-neon-purple transition-all duration-300 group">
+      <Card className="h-full bg-card/60 backdrop-blur-md border border-primary/30 hover:border-accent/50 hover:shadow-lg transition-all duration-300 group">
         <CardContent className="p-8 flex flex-col h-full">
           <motion.div
-            className="mb-6 text-neon-purple p-4 bg-neon-purple/10 rounded-xl w-16 h-16 flex items-center justify-center border border-neon-purple/30 group-hover:bg-neon-cyan/10 group-hover:text-neon-cyan group-hover:border-neon-cyan/30 transition-all duration-300"
+            className="mb-6 text-primary p-4 bg-primary/10 rounded-xl w-16 h-16 flex items-center justify-center border border-primary/30 group-hover:bg-accent/10 group-hover:text-accent group-hover:border-accent/30 transition-all duration-300"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.5 }}
           >
             {icon}
           </motion.div>
-          <h3 className="text-2xl font-bold mb-4 text-white font-sora group-hover:text-neon-cyan transition-colors duration-300">
+          <h3 className="text-2xl font-bold mb-4 text-foreground font-sora group-hover:text-accent transition-colors duration-300">
             {title}
           </h3>
-          <p className="text-gray-300 mb-8 font-space-grotesk leading-relaxed">
+          <p className="text-muted-foreground mb-8 font-space-grotesk leading-relaxed">
             {description}
           </p>
           <div className="mt-auto">
-            <h4 className="font-bold mb-4 text-neon-purple font-space-grotesk">
+            <h4 className="font-bold mb-4 text-primary font-space-grotesk">
               Domination Metrics:
             </h4>
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-neon-cyan shrink-0 mt-1" />
-                  <span className="text-gray-300 font-space-grotesk">
+                  <CheckCircle2 className="h-5 w-5 text-accent shrink-0 mt-1" />
+                  <span className="text-muted-foreground font-space-grotesk">
                     {benefit}
                   </span>
                 </li>
@@ -65,7 +125,7 @@ const ServiceCard = ({
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Zap className="h-8 w-8" />,
+      icon: <RuthlessOperationsIcon />,
       title: "Ruthless Operations",
       description:
         "Eliminate every inefficiency. Our AI doesn't just automate—it optimizes, learns, and evolves to crush operational waste.",
@@ -76,7 +136,7 @@ const ServicesSection = () => {
       ],
     },
     {
-      icon: <LineChart className="h-8 w-8" />,
+      icon: <LeadDominationIcon />,
       title: "Lead Domination Engine",
       description:
         "Turn every visitor into a qualified prospect. Our AI doesn't just capture leads—it qualifies, nurtures, and delivers them ready to close.",
@@ -87,7 +147,7 @@ const ServicesSection = () => {
       ],
     },
     {
-      icon: <Clock className="h-8 w-8" />,
+      icon: <EmpireAutomationIcon />,
       title: "Empire Automation",
       description:
         "Build systems that scale infinitely. Connect every tool, automate every process, and create workflows that work while you sleep.",
@@ -102,12 +162,11 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-20 px-4 md:px-8 bg-black relative overflow-hidden"
+      className="py-16 px-4 md:px-8 bg-background relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 cyber-grid opacity-30"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-purple/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-cyan/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -118,11 +177,11 @@ const ServicesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-black mb-6 font-sora">
-            <span className="bg-gradient-to-r from-white via-neon-purple to-neon-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
               Weapons-Grade AI Solutions
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-space-grotesk font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-space-grotesk font-medium leading-relaxed">
             Ruthless automation that eliminates inefficiency and scales your
             empire while you focus on what matters: closing deals and dominating
             your market.
@@ -151,7 +210,7 @@ const ServicesSection = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               size="lg"
-              className="bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-white font-bold px-12 py-8 h-auto text-lg rounded-full shadow-neon-purple hover:shadow-neon-cyan transition-all duration-300 animate-glow-pulse font-space-grotesk"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-12 py-6 text-lg rounded-full transition-all duration-300 font-space-grotesk"
               onClick={() =>
                 window.open(
                   "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
@@ -159,11 +218,11 @@ const ServicesSection = () => {
                 )
               }
             >
-              Dominate Your Market
+              Dominate Your Market Now
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
           </motion.div>
-          <p className="mt-6 text-lg text-gray-400 font-space-grotesk font-medium">
+          <p className="mt-6 text-lg text-muted-foreground font-space-grotesk font-medium">
             See how we'll eliminate your competition
           </p>
         </motion.div>
