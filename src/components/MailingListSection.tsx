@@ -78,12 +78,12 @@ const MailingListSection = () => {
         
         <p className="mx-auto mt-6 max-w-md text-center text-sm text-muted-foreground">
           We care about your data. Read our{" "}
-          <button
-            onClick={() => setIsPrivacyModalOpen(true)}
+          <a
+            href="/privacy"
             className="whitespace-nowrap font-semibold text-primary hover:text-primary/80 transition-colors duration-200 underline cursor-pointer"
           >
             privacy policy
-          </button>.
+          </a>.
         </p>
         
         {/* Background gradient circle */}

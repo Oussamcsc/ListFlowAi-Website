@@ -17,15 +17,29 @@
       // Prevent flash of unstyled content by setting theme immediately
       (function() {
         const storageKey = 'listflow-ui-theme';
-        const theme = localStorage.getItem(storageKey) || 'light';
-        const root = document.documentElement;
+        let theme = 'light'; // Default theme
         
-        // Only support light and dark themes
-        if (theme === 'dark' || theme === 'light') {
-          root.classList.add(theme);
-        } else {
-          root.classList.add('light');
+        // First, try to get theme from user preferences (saved with cookies)
+        try {
+          const userPreferences = localStorage.getItem('userPreferences');
+          if (userPreferences) {
+            const preferences = JSON.parse(userPreferences);
+            if (preferences.theme && (preferences.theme === 'dark' || preferences.theme === 'light')) {
+              theme = preferences.theme;
+            }
+          }
+        } catch (error) {
+          // Fallback: Try to get theme from direct theme storage
+          const storedTheme = localStorage.getItem(storageKey);
+          if (storedTheme === 'dark' || storedTheme === 'light') {
+            theme = storedTheme;
+          }
         }
+        
+        // Apply theme to document
+        const root = document.documentElement;
+        root.classList.remove('light', 'dark');
+        root.classList.add(theme);
       })();
     </script>
     <div id="root"></div>

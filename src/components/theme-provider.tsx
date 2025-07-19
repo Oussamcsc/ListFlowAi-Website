@@ -30,7 +30,20 @@ export function ThemeProvider({
     // Check if we're in a browser environment
     if (typeof window === "undefined") return defaultTheme;
     
-    // Try to get theme from localStorage first
+    // First, try to get theme from user preferences (saved with cookies)
+    try {
+      const userPreferences = localStorage.getItem("userPreferences");
+      if (userPreferences) {
+        const preferences = JSON.parse(userPreferences);
+        if (preferences.theme && ["dark", "light"].includes(preferences.theme)) {
+          return preferences.theme;
+        }
+      }
+    } catch (error) {
+      console.log("Failed to parse user preferences:", error);
+    }
+    
+    // Fallback: Try to get theme from direct theme storage
     const storedTheme = localStorage.getItem(storageKey) as Theme;
     if (storedTheme && ["dark", "light"].includes(storedTheme)) {
       return storedTheme;
@@ -51,6 +64,18 @@ export function ThemeProvider({
     setTheme: (theme: Theme) => {
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
+      
+      // Also update user preferences if they exist
+      try {
+        const userPreferences = localStorage.getItem("userPreferences");
+        if (userPreferences) {
+          const preferences = JSON.parse(userPreferences);
+          preferences.theme = theme;
+          localStorage.setItem("userPreferences", JSON.stringify(preferences));
+        }
+      } catch (error) {
+        console.log("Failed to update user preferences:", error);
+      }
     },
   };
 

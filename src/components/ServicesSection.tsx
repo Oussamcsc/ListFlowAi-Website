@@ -210,7 +210,7 @@ const ServicesSection = () => {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-12 py-6 text-lg rounded-full transition-all duration-300 font-space-grotesk"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-full transition-all duration-300 font-space-grotesk w-full sm:w-auto"
               onClick={() =>
                 window.open(
                   "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
@@ -218,8 +218,8 @@ const ServicesSection = () => {
                 )
               }
             >
-              Dominate Your Market Now
-              <ArrowRight className="ml-3 h-6 w-6" />
+              <span className="block sm:inline">Dominate Your Market Now</span>
+              <ArrowRight className="ml-2 sm:ml-3 h-5 w-5 sm:h-6 sm:w-6" />
             </Button>
           </motion.div>
           <p className="mt-6 text-lg text-muted-foreground font-space-grotesk font-medium">
