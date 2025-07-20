@@ -28,7 +28,14 @@ const MailingListSection = () => {
   return (
     <>
       <section className="relative isolate overflow-hidden py-12 sm:py-16 lg:py-20 px-6 lg:px-8">
-        <h2 className="mx-auto text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl font-sora mb-6">
+        {/* Simple animated floating dots */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-4 sm:left-10 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-ping"></div>
+          <div className="absolute top-20 sm:top-40 right-8 sm:right-20 w-1 h-1 bg-accent rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 sm:bottom-32 left-1/4 w-2 h-2 sm:w-3 sm:h-3 bg-primary/50 rounded-full animate-bounce"></div>
+        </div>
+
+        <h2 className="mx-auto text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl font-sora mb-6 relative z-10">
           <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
             Weapons-Grade AI Solutions
           </span>

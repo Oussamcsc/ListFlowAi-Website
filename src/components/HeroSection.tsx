@@ -130,13 +130,154 @@ const HeroSection = ({
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
-          className="flex flex-col items-center text-center max-w-5xl mx-auto px-4 sm:px-6"
+          className="flex flex-col items-center text-center max-w-5xl mx-auto px-4 sm:px-6 relative"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
+          {/* Robot Character - Inside main content, with cool effects */}
+          <motion.div 
+            className="absolute top-4 sm:top-6 left-2 sm:left-4 w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 pointer-events-auto z-5 cursor-pointer"
+            initial={{ opacity: 0, scale: 0.3, rotate: 0 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            animate={{ 
+              scale: [1, 1.15, 0.95, 1.1, 1],
+              y: [0, -8, 2, -5, 0],
+              x: [0, 3, -3, 1, 0]
+            }}
+            whileHover={{ 
+              scale: [1, 1.3, 1.2],
+              filter: "brightness(1.3) saturate(1.5)",
+              transition: { 
+                duration: 0.8,
+                type: "spring",
+                bounce: 0.4
+              }
+            }}
+            transition={{
+              opacity: { duration: 1.2, delay: 0.5 },
+              scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+              y: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+              x: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
+            }}
+            style={{
+              filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))",
+            }}
+          >
+            {/* Glowing ring effect */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-primary/30"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 0.8, 0.3]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Pulsing background */}
+            <motion.div
+              className="absolute inset-0 rounded-full bg-primary/20"
+              animate={{
+                scale: [0.8, 1.2, 0.8],
+                opacity: [0.2, 0.5, 0.2]
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            <img 
+              src="/robot.png" 
+              alt="AI Robot" 
+              className="relative w-full h-full object-contain filter brightness-110 contrast-110"
+            />
+          </motion.div>
+
+          {/* Left Side Avatar - Inside main content */}
+          <motion.div 
+            className="absolute top-1/2 left-2 sm:left-4 md:left-6 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 z-30 pointer-events-auto cursor-pointer"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            animate={{ 
+              x: [0, -8, 0],
+              y: [0, -4, 0] 
+            }}
+            whileHover={{ 
+              scale: 1.15,
+              x: -12,
+              y: -8,
+              transition: { duration: 0.3 }
+            }}
+            style={{ animationDuration: "3.2s", animationIterationCount: "infinite" }}
+          >
+            <img 
+              src="/avatars/avatar3.png" 
+              alt="AI Agent Avatar Left" 
+              className="w-full h-full rounded-full border-2 sm:border-3 border-secondary/40 shadow-xl bg-background p-0.5 transition-all duration-300 hover:border-secondary/70"
+            />
+          </motion.div>
+
+          {/* Right Side Avatar - Inside main content */}
+          <motion.div 
+            className="absolute top-1/2 right-2 sm:right-4 md:right-6 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 z-30 pointer-events-auto cursor-pointer"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            animate={{ 
+              x: [0, 8, 0],
+              y: [0, -4, 0] 
+            }}
+            whileHover={{ 
+              scale: 1.15,
+              x: 12,
+              y: -8,
+              transition: { duration: 0.3 }
+            }}
+            style={{ animationDuration: "3.5s", animationIterationCount: "infinite" }}
+          >
+            <img 
+              src="/avatars/avatar4.png" 
+              alt="AI Agent Avatar Right" 
+              className="w-full h-full rounded-full border-2 sm:border-3 border-primary/40 shadow-xl bg-background p-0.5 transition-all duration-300 hover:border-primary/70"
+            />
+          </motion.div>
+
+          {/* Single Avatar - Centered at top */}
+          {/* Avatar 1 - Top Center */}
+          <motion.div 
+            className="absolute -top-8 sm:-top-12 md:-top-16 left-1/2 transform -translate-x-1/2 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 z-30 pointer-events-auto cursor-pointer"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            animate={{ y: [0, -8, 0] }}
+            whileHover={{ 
+              scale: 1.15,
+              y: -12,
+              transition: { duration: 0.3 }
+            }}
+            style={{ animationDuration: "3s", animationIterationCount: "infinite" }}
+          >
+            <img 
+              src="/avatars/avatar1.png" 
+              alt="AI Agent Avatar 1" 
+              className="w-full h-full rounded-full border-2 sm:border-3 border-primary/40 shadow-xl bg-background p-0.5 transition-all duration-300 hover:border-primary/70"
+            />
+          </motion.div>
+
+          {/* Spinning loader and text below avatars */}
           <motion.div
-            className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
+            className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 mt-8 sm:mt-12"
             variants={itemVariants}
           >
             <motion.div
@@ -158,13 +299,34 @@ const HeroSection = ({
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 sm:mb-6 font-sora glow-text leading-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-4 sm:mb-6 font-sora glow-text leading-tight relative"
             variants={itemVariants}
           >
-            <span 
-              className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent"
-              dangerouslySetInnerHTML={{ __html: title }}
-            />
+            <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent relative">
+              Automate ruthlessly.
+              <br />
+              Scale fearlessly.
+            </span>
+            {/* Doodle positioned below "Scale fearlessly." text */}
+            <motion.div 
+              className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-4 sm:translate-y-6 md:translate-y-8 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 pointer-events-none z-5"
+              initial={{ opacity: 0, rotate: -90, scale: 0.3 }}
+              whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.8, type: "spring", bounce: 0.3 }}
+              animate={{ 
+                rotate: [0, 15, -15, 0],
+                opacity: [0.7, 1, 0.7],
+                scale: [1, 1.1, 1]
+              }}
+              style={{ animationDuration: "4s", animationIterationCount: "infinite" }}
+            >
+              <img 
+                src="/doodle.png" 
+                alt="Decorative Doodle" 
+                className="w-full h-full object-contain opacity-80 filter brightness-110"
+              />
+            </motion.div>
           </motion.h1>
 
           <motion.p
@@ -269,7 +431,7 @@ const HeroSection = ({
               className="absolute top-3/4 -left-6 sm:-left-12 bg-background/80 backdrop-blur-md p-2 sm:p-3 rounded-xl shadow-lg border border-border"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.5 }}
+              transition={{ delay: 5, duration: 0.8 }}
               whileHover={{ scale: 1.05 }}
             >
               <div className="flex items-center gap-1 sm:gap-2">
