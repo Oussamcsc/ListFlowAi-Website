@@ -217,6 +217,12 @@ const HeroSection = ({
               y: -8,
               transition: { duration: 0.3 }
             }}
+            whileTap={{ 
+              scale: 1.2,
+              x: -15,
+              y: -10,
+              transition: { duration: 0.2 }
+            }}
             style={{ animationDuration: "3.2s", animationIterationCount: "infinite" }}
           >
             <img 
@@ -243,6 +249,12 @@ const HeroSection = ({
               y: -8,
               transition: { duration: 0.3 }
             }}
+            whileTap={{ 
+              scale: 1.2,
+              x: 15,
+              y: -10,
+              transition: { duration: 0.2 }
+            }}
             style={{ animationDuration: "3.5s", animationIterationCount: "infinite" }}
           >
             <img 
@@ -265,6 +277,11 @@ const HeroSection = ({
               scale: 1.15,
               y: -12,
               transition: { duration: 0.3 }
+            }}
+            whileTap={{ 
+              scale: 1.2,
+              y: -15,
+              transition: { duration: 0.2 }
             }}
             style={{ animationDuration: "3s", animationIterationCount: "infinite" }}
           >
