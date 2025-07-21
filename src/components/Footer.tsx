@@ -54,15 +54,25 @@ const Footer = () => {
           })}
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-8 text-center text-sm leading-6 text-muted-foreground md:order-1 md:mt-0"
         >
-          &copy; {new Date().getFullYear()} ListFlowAI. All rights reserved.
-        </motion.p>
+          <p className="mb-2">
+            &copy; {new Date().getFullYear()} ListFlowAI. All rights reserved.
+          </p>
+          <p>
+            <a
+              href="/privacy"
+              className="hover:text-primary transition-colors duration-200 underline"
+            >
+              Privacy Policy
+            </a>
+          </p>
+        </motion.div>
       </div>
     </footer>
   );

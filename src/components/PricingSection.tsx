@@ -168,7 +168,7 @@ const PricingSection = () => {
                     <Button
                       className={`w-full py-4 font-bold font-space-grotesk transition-all duration-300 ${
                         tier.name === "Emperor"
-                          ? "bg-destructive hover:bg-destructive/90 text-destructive-foreground border-destructive"
+                          ? "bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground border-primary/20 shadow-lg hover:shadow-primary/20"
                           : "bg-gradient-to-r from-neon-purple to-neon-cyan hover:from-neon-cyan hover:to-neon-purple text-primary-foreground shadow-neon-purple hover:shadow-neon-cyan"
                       }`}
                       onClick={() => {
@@ -205,12 +205,49 @@ const PricingSection = () => {
             30-day domination guarantee. No contracts. No excuses. Just results.
           </p>
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Button
-              variant="link"
-              className="text-neon-cyan hover:text-neon-purple font-bold font-space-grotesk text-lg"
-            >
-              View full arsenal details
-            </Button>
+            <div className="bg-card/50 border border-border rounded-lg p-6 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-foreground mb-4 font-sora text-center">
+                Common Workflow Examples
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-cyan rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    Lead Scoring & Routing
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-purple rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    Automated Follow-ups
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-cyan rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    CRM Data Sync
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-purple rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    Appointment Scheduling
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-cyan rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    Basic Reporting
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-neon-purple rounded-full"></div>
+                  <span className="text-muted-foreground font-space-grotesk">
+                    Email Automation
+                  </span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

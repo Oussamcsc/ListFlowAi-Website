@@ -92,7 +92,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <h5 className="font-bold text-foreground font-sora">
-                      Oussama Bouyahia
+                      Oussama Abouyahia
                     </h5>
                     <p className="text-sm text-muted-foreground font-space-grotesk">
                       Co-Founder & CEO
@@ -104,11 +104,11 @@ const AboutSection = () => {
                 </div>
                 <div className="flex items-center space-x-4 p-4 rounded-lg bg-accent/5 border border-accent/20">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-primary-foreground font-bold text-xl font-sora">
-                    A
+                    Y
                   </div>
                   <div>
                     <h5 className="font-bold text-foreground font-sora">
-                      Abderrahim Bouyahia
+                      Youssef Abouyahia
                     </h5>
                     <p className="text-sm text-muted-foreground font-space-grotesk">
                       Co-Founder & CTO
