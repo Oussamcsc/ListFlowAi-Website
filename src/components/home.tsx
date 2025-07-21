@@ -10,6 +10,7 @@ import ContactSection from "./ContactSection";
 import MailingListSection from "./MailingListSection";
 import FAQSection from "./FAQSection";
 import Footer from "./Footer";
+import TrustBanner from "./TrustBanner";
 
 const fadeIn = {
   hidden: { opacity: 0 },
@@ -81,6 +82,7 @@ const Home = () => {
       </motion.div>
 
       <Footer />
+      <TrustBanner />
     </div>
   );
 };
