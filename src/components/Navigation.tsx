@@ -23,6 +23,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
+    { name: "Results", href: "#testimonials" },
     { name: "Pricing", href: "#pricing" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
@@ -30,8 +31,8 @@ const Navigation = () => {
 
   const scrollToSection = (href: string) => {
     // If we're not on the home page, navigate to home first, then scroll
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== "/") {
+      navigate("/");
       // Use setTimeout to wait for navigation to complete
       setTimeout(() => {
         const element = document.querySelector(href);
@@ -78,7 +79,9 @@ const Navigation = () => {
             >
               {/* Logo placeholder - replace with your logo */}
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-primary-foreground font-bold text-lg">L</span>
+                <span className="text-primary-foreground font-bold text-lg">
+                  L
+                </span>
               </div>
               <span className="text-xl font-bold font-sora bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 ListFlowAI
@@ -157,9 +160,9 @@ const Navigation = () => {
           </div>
         </motion.div>
       )}
-      
+
       {/* Innovative animated gradient line */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isScrolled ? 1 : 0 }}

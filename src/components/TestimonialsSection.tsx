@@ -57,6 +57,18 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+// Key metrics for prominent display
+const keyMetrics = [
+  {
+    metric: "73%",
+    label: "Conversion Rate Increase",
+    company: "Empire Digital",
+  },
+  { metric: "3x", label: "Revenue Growth", company: "Apex Consulting" },
+  { metric: "60%", label: "Cost Reduction", company: "Titan Ventures" },
+  { metric: "200%", label: "Productivity Boost", company: "Titan Ventures" },
+];
+
 const TestimonialsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
@@ -113,10 +125,34 @@ const TestimonialsSection = () => {
               War Stories From The Trenches
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-space-grotesk font-medium leading-relaxed mb-8">
             Real results from real warriors who chose to dominate their markets
             with ListFlowAI.
           </p>
+
+          {/* Key Metrics Display */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+            {keyMetrics.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-card/60 backdrop-blur-md border border-primary/20 rounded-lg p-4 text-center hover:border-accent/40 transition-all duration-300"
+              >
+                <div className="text-2xl md:text-3xl font-black text-primary mb-1 font-sora">
+                  {item.metric}
+                </div>
+                <div className="text-xs md:text-sm text-muted-foreground font-space-grotesk font-medium">
+                  {item.label}
+                </div>
+                <div className="text-xs text-primary/60 font-space-grotesk mt-1">
+                  {item.company}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <div className="relative">

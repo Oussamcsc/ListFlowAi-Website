@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  Settings, 
-  TrendingUp, 
-  Zap 
+import {
+  ArrowRight,
+  CheckCircle2,
+  Settings,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,13 +14,13 @@ import { Button } from "@/components/ui/button";
 const RuthlessOperationsIcon = () => {
   return (
     <motion.div
-      animate={{ 
+      animate={{
         rotate: [0, 360],
-        scale: [1, 1.1, 1]
+        scale: [1, 1.1, 1],
       }}
-      transition={{ 
+      transition={{
         rotate: { duration: 4, repeat: Infinity, ease: "linear" },
-        scale: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+        scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
       }}
     >
       <Settings className="w-8 h-8" />
@@ -31,14 +31,14 @@ const RuthlessOperationsIcon = () => {
 const LeadDominationIcon = () => {
   return (
     <motion.div
-      animate={{ 
+      animate={{
         y: [0, -4, 0],
-        scale: [1, 1.05, 1]
+        scale: [1, 1.05, 1],
       }}
-      transition={{ 
-        duration: 2, 
-        repeat: Infinity, 
-        ease: "easeInOut" 
+      transition={{
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
       }}
     >
       <TrendingUp className="w-8 h-8" />
@@ -49,14 +49,14 @@ const LeadDominationIcon = () => {
 const EmpireAutomationIcon = () => {
   return (
     <motion.div
-      animate={{ 
+      animate={{
         scale: [1, 1.2, 1],
-        opacity: [1, 0.8, 1]
+        opacity: [1, 0.8, 1],
       }}
-      transition={{ 
-        duration: 1.5, 
-        repeat: Infinity, 
-        ease: "easeInOut" 
+      transition={{
+        duration: 1.5,
+        repeat: Infinity,
+        ease: "easeInOut",
       }}
     >
       <Zap className="w-8 h-8" />
@@ -199,6 +199,82 @@ const ServicesSection = () => {
             />
           ))}
         </div>
+
+        {/* How It Works Process Visualization */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 font-sora">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                How We Weaponize Your Business
+              </span>
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-space-grotesk">
+              Our battle-tested 3-step process transforms your operations into a
+              profit-generating machine
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                step: "01",
+                title: "Identify Pain Points",
+                description:
+                  "We audit your current processes and identify every inefficiency bleeding your profits",
+                icon: "🎯",
+              },
+              {
+                step: "02",
+                title: "Deploy AI Arsenal",
+                description:
+                  "Custom AI solutions are implemented to automate, optimize, and dominate your workflows",
+                icon: "⚡",
+              },
+              {
+                step: "03",
+                title: "Achieve Domination",
+                description:
+                  "Watch as your metrics explode while competitors struggle with manual processes",
+                icon: "🚀",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-center p-6 rounded-xl bg-card/60 backdrop-blur-md border border-primary/20 hover:border-accent/40 transition-all duration-300 group">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <div className="text-sm font-bold text-primary/60 mb-2 font-space-grotesk tracking-wider">
+                    STEP {item.step}
+                  </div>
+                  <h4 className="text-xl font-bold mb-3 text-foreground font-sora group-hover:text-accent transition-colors duration-300">
+                    {item.title}
+                  </h4>
+                  <p className="text-muted-foreground font-space-grotesk leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Connecting Arrow */}
+                {index < 2 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary/30">
+                    <ArrowRight className="w-6 h-6" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

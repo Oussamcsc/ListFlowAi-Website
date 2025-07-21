@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navigation from "./Navigation";
 import HeroSection from "./HeroSection";
 import ServicesSection from "./ServicesSection";
+import HowItWorksSection from "./HowItWorksSection";
 import PricingSection from "./PricingSection";
 import TestimonialsSection from "./TestimonialsSection";
 import AboutSection from "./AboutSection";
@@ -32,6 +33,15 @@ const Home = () => {
         variants={fadeIn}
       >
         <ServicesSection />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeIn}
+      >
+        <HowItWorksSection />
       </motion.div>
 
       <motion.div

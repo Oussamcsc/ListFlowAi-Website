@@ -92,7 +92,7 @@ const ContactSection = () => {
                       htmlFor="name"
                       className="block text-sm font-medium mb-2 flex items-center"
                     >
-                      Full Name 
+                      Full Name
                       <span className="text-red-500 ml-1 text-base">*</span>
                     </label>
                     <Input
@@ -111,7 +111,7 @@ const ContactSection = () => {
                       htmlFor="email"
                       className="block text-sm font-medium mb-2 flex items-center"
                     >
-                      Email Address 
+                      Email Address
                       <span className="text-red-500 ml-1 text-base">*</span>
                     </label>
                     <Input
@@ -150,7 +150,7 @@ const ContactSection = () => {
                     htmlFor="message"
                     className="block text-sm font-medium mb-2 flex items-center"
                   >
-                    Message 
+                    Message
                     <span className="text-red-500 ml-1 text-base">*</span>
                   </label>
                   <Textarea
@@ -161,7 +161,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="form-field bg-background border-border focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
-                    placeholder="Describe your business challenges and automation goals. What specific processes would you like to streamline?"
+                    placeholder="Tell us about your business challenges and automation goals. What specific processes are eating your profits? What's your current monthly revenue? What results would make this a no-brainer investment for you?"
                   />
                 </div>
 
@@ -208,7 +208,7 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-lg font-semibold mb-1">{info.title}</h4>
                     {info.title === "Email Us" ? (
-                      <a 
+                      <a
                         href={`mailto:${info.details}`}
                         className="text-primary font-medium mb-1 hover:text-primary/80 transition-colors duration-200 cursor-pointer"
                       >
@@ -228,22 +228,31 @@ const ContactSection = () => {
             })}
 
             <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-border rounded-xl p-8 text-center mt-auto">
-              <h4 className="text-xl font-bold mb-4">Ready to get started?</h4>
+              <h4 className="text-xl font-bold mb-4">
+                Skip the Form - Get Instant Results
+              </h4>
               <p className="text-muted-foreground mb-6">
-                Book a free 30-minute consultation to discuss your automation
-                needs.
+                Book a free 30-minute AI ROI assessment. We'll analyze your
+                business and show you exactly how much money you're leaving on
+                the table.
               </p>
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:glow"
-                onClick={() =>
-                  window.open(
-                    "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
-                    "_blank",
-                  )
-                }
-              >
-                Book a Demo Call
-              </Button>
+              <div className="space-y-3">
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:glow"
+                  onClick={() =>
+                    window.open(
+                      "https://calendly.com/oabouyahia/free-ai-automation-demo-call",
+                      "_blank",
+                    )
+                  }
+                >
+                  Book Free AI ROI Assessment
+                </Button>
+                <p className="text-xs text-muted-foreground font-space-grotesk">
+                  ✓ No sales pitch ✓ Actionable insights ✓ Custom automation
+                  roadmap
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
